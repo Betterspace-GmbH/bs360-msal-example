@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "a735093a-78fb-4282-8f78-4925c931ee45",
+		"name": "APIM BS360",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27515331"
+	},
+	"item": [
+		{
+			"name": "Request token",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "{{bs_client_id}}",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{bs_client_secret}}",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "https://{{bs_tenant}}.onmicrosoft.com/backend-api/.default",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{bs_tenant}}.b2clogin.com/{{bs_tenant}}.onmicrosoft.com/{{bs_policy}}/oauth2/v2.0/token",
+					"protocol": "https",
+					"host": [
+						"{{bs_tenant}}",
+						"b2clogin",
+						"com"
+					],
+					"path": [
+						"{{bs_tenant}}.onmicrosoft.com",
+						"{{bs_policy}}",
+						"oauth2",
+						"v2.0",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
